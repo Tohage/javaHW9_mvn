@@ -2,6 +2,8 @@ package netology.radio;
 
 public class Radio {
     private int currentStation;
+    private int currentVolume;
+
 
     public int getCurrentStation() {
         return currentStation;
@@ -9,34 +11,29 @@ public class Radio {
 
     public void setCurrentStation(int currentStation) {
         if (currentStation < 0) {
-            currentStation = 9;
+            return;
         }
         if (currentStation > 9) {
-            currentStation = 0;
+            return;
         }
         this.currentStation = currentStation;
     }
 
-    public void increaseStation() {
-
-        if (currentStation <= 0) {
-            setCurrentStation(currentStation);
-        }
-        currentStation = currentStation + 1;
-        if (currentStation > 9) {
+    public void nextStation() {
+        if (currentStation != 9) {
+            currentStation++;
+        } else {
             currentStation = 0;
         }
     }
 
-    public void reduceStation() {
-
-        if (currentStation <= 0) {
+    public void prevStation() {
+        if (currentStation != 0) {
+            currentStation--;
+        } else {
             currentStation = 9;
         }
-        currentStation -= 1;
     }
-
-    private int currentVolume;
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -53,13 +50,13 @@ public class Radio {
     }
 
 
-    public void increaseVolume() {
+    public void nextVolume() {
         if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
 
-    public void reduceVolume() {
+    public void prevVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
