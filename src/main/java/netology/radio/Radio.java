@@ -3,7 +3,6 @@ package netology.radio;
 import lombok.Data;
 import lombok.Getter;
 
-
 @Data
 @Getter
 public class Radio {
@@ -13,9 +12,11 @@ public class Radio {
     private final int maxVolume = 100;
     private final int minVolume = 0;
 
+    public Radio(int amountStation) {
+        this.maxStation = amountStation - 1;
+    }
 
-
-Radio() {
+    Radio() {
         this.maxStation = 10;
     }
 
