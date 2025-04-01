@@ -445,6 +445,15 @@ public class RadioTests {
 
         Assertions.assertEquals(1, st.getCurrentStation());
     }
+
+    @Test
+    void changeAmountMaxStation() {
+        Radio st = new Radio(12);
+        st.setCurrentStation(11);
+
+
+        Assertions.assertEquals(11, st.getCurrentStation());
+    }
 }
 
 
